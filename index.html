@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        <title>Encuesta</title>
+    </head>
+        <body>
+            <header>Encuesta chida</header>
+            <section id="seccion"  class="universo">
+                <article class="contenedor">                        
+                    <h4>¿Te gusta jugar videojuegos?</h4>
+                    <input type="radio" name="opcion" value="contenedor" v-model="cajas" @change="mostrarPregunta(0)"> No |
+                    <input type="radio" name="opcion" value="contenedor" v-model="cajas" @change="mostrarPregunta(1)"> Sí
+                </article>
+                <article v-if="mostrar" @click="mostrarResultado" v-bind:class=cajas>
+                    <h4>¿Cuantas horas juegas al día?</h4>
+                    <input type="radio" name="opcion1" id="espacio" @click="tiMe1()"> Menos de 1hr<br>
+                    <input type="radio" name="opcion1" id="espacio" @click="ti1a2()" >1hr a 2hr<br>
+                    <input type="radio" name="opcion1" id="espacio" @click="ti2a3()"> 2hr a 3hr<br>
+                    <input type="radio" name="opcion1" id="" @click="ti3Ma()"> 3hr a más
+                    
+                </article>
+                <article v-if="mostrar" @click="mostrarResultado" v-bind:class=cajas>
+                    <h4>¿Qué plataforma juegas más?</h4>
+                    <input type="checkbox" name="opcion2" id="espacio" @click="plataforma('Xbox')"> Xbox<br>
+                    <input type="checkbox" name="opcion2" id="espacio" @click="plataforma('PlayStation')"> PlayStation<br>
+                    <input type="checkbox" name="opcion2" id="espacio" @click="plataforma('Nintendo')"> Nintendo<br>
+                    <input type="checkbox" name="opcion2" id="espacio" @click="plataforma('Computadora')"> Computadora<br>
+                    <input type="checkbox" name="opcion2" id="" @click="plataforma('Teléfono')"> Teléfono
+                </article>
+
+                <article v-if="mostrar" @click="mostrarResultado" v-bind:class=cajas>
+                    <h4>Agrega una lista de juego que hayas jugado</h4>
+                    <input type="text" v-model="juego" @heyup.enter="agregarJuegos()" placeholder="Ingresa un título">
+                    <button @click="agregarJuegos()">Agregar</button>
+                </article>
+
+
+                <article v-if="mostrar" @click="mostrarResultado" v-bind:class=cajas>
+                    <h4>Acabar encuesta</h4>
+                    <button v-model="cajas" @click="mostrarFIN">Enviar</button>
+                </article>
+
+                <article v-else v-bind:class=cajas><h4>{{mensaje}}</h4></article>
+
+
+                <article v-if="fin" @click="mostrarFIN" v-bind:class=cajas>
+                    <div class="contenedorFIN">
+                        <h2>Resultados</h2>
+                        <h4>¿Cuantas horas juegas?</h4>
+                        <p id="espacio">{{tiempo}}</p>
+                        <h4>¿Qué plataforma juegas más?</h4>
+                        <ul id="espacio">
+                            <li v-for="(plaJugada, index) in listaPlataforma":hey="index">{{plaJugada}}</li>
+                        </ul>
+                        <h4>Juegos jugados:</h4>
+                        <ul id="espacio">
+                            <li v-for="(videojuegos, index) in listaJuegos":hey="index">{{videojuegos}}</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </body>
+    <script src="js/vue.js"></script>
+    <script src="js/script.js"></script>
+</html>

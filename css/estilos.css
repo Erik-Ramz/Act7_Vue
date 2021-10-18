@@ -1,0 +1,35 @@
+*{margin:0px;border:0px;}
+html{font-size:16px;text-align: center;}
+body{font-size:0px;}
+header{
+    font-size: 1.5rem;
+    background-color: rgb(37, 65, 65);
+    border: 5px solid black;
+    color: white;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+.universo{display: inline-block;}
+.contenedor{
+    display: block;
+    font-size: 1rem;
+    width: 400px;
+    border: 2px solid black;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(33, 102, 70, 0.733);
+}
+.contenedor h4{font-size: 1.2rem;padding-bottom: 10px;}
+#espacio{margin-bottom: 10px;}
+.contenedorFIN h2{
+    text-align: center;
+}
+.contenedorFIN{
+    display: inline-block;
+    text-align: left;
+    font-size: 1rem;
+    width: 300px;
+    border: 2px solid black;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.87);
+}
